@@ -1,0 +1,27 @@
+{
+  "name": "vue-custom-element-template",
+  "version": "1.0.1",
+  "scripts": {
+    "lint:script": "eslint --fix --ext .ts,vue --ignore-path .gitignore .",
+    "lint:style": "stylelint --fix **/*.{css,scss,vue}"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.33.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "eslint": "^7.32.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-jest": "^24.5.2",
+    "eslint-plugin-jsonc": "^1.7.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-unicorn": "^36.0.0",
+    "eslint-plugin-vue": "7.19.0",
+    "eslint-plugin-yml": "^0.10.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-recommended": "^5.0.0",
+    "stylelint-config-standard": "^22.0.0",
+    "typescript": "^4.4.3",
+    "vue": "^3.2.1"
+  }
+}
