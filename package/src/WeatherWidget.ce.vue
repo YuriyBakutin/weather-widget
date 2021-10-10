@@ -1,5 +1,5 @@
 <template>
-  <div class="relative border h2 base">
+  <div class="r relative border h2 base">
     <div>
       <weather-card />
       <weather-card />

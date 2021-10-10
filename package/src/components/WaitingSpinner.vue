@@ -1,6 +1,6 @@
 <template>
   <img
     alt="Waiting Spinner"
-    style="width: 32px; height: 32rpx;" />
+    style="width: 32rem; height: 32rem;" />
 
 </template>
