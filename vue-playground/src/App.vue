@@ -1,9 +1,9 @@
 <template>
-  <vue-custom-element />
+  <weather-widget />
 </template>
 
 <script setup lang="ts">
-import VueCustomElement from '../../package/src/VueCustomElement.ce.vue'
+import WeatherWidget from '../../package/src/WeatherWidget.ce.vue'
 </script>
 
 <style>

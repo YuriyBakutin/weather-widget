@@ -16,6 +16,7 @@ export default defineConfig({
         }),
       ],
       dts: 'src/components.d.ts',
+      dirs: ['../package/src/components'],
     }),
     Icons({
       autoInstall: true,

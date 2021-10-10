@@ -1,6 +1,6 @@
 import { defineCustomElement } from 'vue'
-import VueCustomElementWithStyles from './VueCustomElement.ce.vue'
+import WeatherWidgetStyles from './WeatherWidget.ce.vue'
 
-const VueCustomElement = defineCustomElement(VueCustomElementWithStyles)
+const WeatherWidget = defineCustomElement(WeatherWidgetStyles)
 
-customElements.define('vue-custom-element', VueCustomElement)
+customElements.define('weather-widget', WeatherWidget)

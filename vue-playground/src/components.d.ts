@@ -5,7 +5,20 @@
 declare module 'vue' {
   export interface GlobalComponents {
     CustomIconEasel: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconEasel.vue')['default']
+    HumidityInfo: typeof import('./../../package/src/components/HumidityInfo.vue')['default']
+    LocationInput: typeof import('./../../package/src/components/LocationInput.vue')['default']
+    LocationLabel: typeof import('./../../package/src/components/LocationLabel.vue')['default']
+    MainInfo: typeof import('./../../package/src/components/MainInfo.vue')['default']
     MdiTools: typeof import('~icons/mdi/tools')['default']
+    OcticonGear16: typeof import('~icons/octicon/gear16')['default']
+    PressureInfo: typeof import('./../../package/src/components/PressureInfo.vue')['default']
+    SettingsPopup: typeof import('./../../package/src/components/SettingsPopup.vue')['default']
+    VisibilityInfo: typeof import('./../../package/src/components/VisibilityInfo.vue')['default']
+    WaitingSpinner: typeof import('./../../package/src/components/WaitingSpinner.vue')['default']
+    WeatherCard: typeof import('./../../package/src/components/WeatherCard.vue')['default']
+    WelcomeView: typeof import('./../../package/src/components/WelcomeView.vue')['default']
+    WidgetHeader: typeof import('./../../package/src/components/WidgetHeader.vue')['default']
+    WindInfo: typeof import('./../../package/src/components/WindInfo.vue')['default']
   }
 }
 
