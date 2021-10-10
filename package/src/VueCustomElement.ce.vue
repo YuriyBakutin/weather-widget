@@ -6,6 +6,7 @@
   </div>
 </template>
 <style scoped>
+@import '../node_modules/basscss/css/basscss.min.css';
 /*  this class is necessary to check for the absence of conflicts
     of classes of elements and environments */
 .big-size {

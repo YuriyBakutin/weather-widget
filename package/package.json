@@ -34,5 +34,8 @@
     "vite-dts": "^1.0.3",
     "vue": "^3.2.16",
     "vue-tsc": "^0.3.0"
+  },
+  "dependencies": {
+    "basscss": "^8.1.0"
   }
 }
