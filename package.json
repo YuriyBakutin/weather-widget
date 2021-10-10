@@ -1,6 +1,6 @@
 {
-  "name": "vue-custom-element-template",
-  "version": "1.0.1",
+  "name": "weather-widget",
+  "version": "0.0.2",
   "scripts": {
     "lint:script": "eslint --fix --ext .ts,vue --ignore-path .gitignore .",
     "lint:style": "stylelint --fix **/*.{css,scss,vue}"

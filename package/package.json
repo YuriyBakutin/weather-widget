@@ -1,6 +1,6 @@
 {
-  "name": "vue-custom-element",
-  "version": "0.0.1",
+  "name": "weather-widget",
+  "version": "0.0.2",
   "scripts": {
     "build": "vue-tsc --noEmit && vite build"
   },
