@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
-
-const emptyStringsArray: string[] = []
+import IWeathers from '../types/IWeathers'
 
 export default {
-  locations: ref(emptyStringsArray),
+  locations: ref([] as string[]),
+  weatherData: ref({} as IWeathers),
 }

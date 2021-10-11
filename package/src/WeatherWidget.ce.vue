@@ -3,10 +3,12 @@
   localStorage.setItem('locations', '["London", "Paris"]')
 </script>
 <script lang="ts" setup>
-  import WStore from './store/index'
+  import store from './store/index'
 
-  WStore.actions.setLocationsFromLocalStorage()
-  let locations = computed(() => WStore.state.locations.value)
+  store.actions.setLocationsFromLocalStorage()
+  let locations = ref(store.state.locations.value)
+
+  store.actions.fetchAllWeathers()
 
 </script>
 <template>

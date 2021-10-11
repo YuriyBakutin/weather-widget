@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import State from './state'
+import state from './state'
 
 export default{
 }
