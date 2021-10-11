@@ -2,6 +2,7 @@ import state from './state'
 import getUrlByCityName from '../helpers/getUrlByCityName'
 import getWeatherDataFromResponse from '../helpers/getWeatherDataFromResponse'
 import IWeatherResponse from '../types/IWeatherResponse'
+import IWeathers from '../types/IWeathers'
 
 export default {
   initLocationsFromLocalStorage() {
@@ -17,13 +18,21 @@ export default {
   async fetchWeatherByLocation(location: string) {
     const url = getUrlByCityName(location)
 
+    const response = await fetch(url)
+
+    if (!response.ok) {
+      return false
+    }
+
     const weatherData_ = { ...state.weatherData.value }
 
-    weatherData_[location] = getWeatherDataFromResponse(await (
-      (await fetch(url)).json()
-    ) as unknown as IWeatherResponse)
+    weatherData_[location] = getWeatherDataFromResponse(
+      (await response.json()) as unknown as IWeatherResponse
+    )
 
     state.weatherData.value = weatherData_
+
+    return true
   },
 
   async fetchAllWeathers() {
@@ -32,17 +41,18 @@ export default {
     const responseDataArray = await Promise.all(
       locations.map(
         (location) => fetch(getUrlByCityName(location))
-          .then((response) => response.json())
+          .then((response) => response.ok ? response.json() : null)
           .catch(() => null) as unknown as IWeatherResponse | null
       )
     )
 
-    responseDataArray.forEach(
-      (responseData, index) => {
-        const weatherData_ = { ...state.weatherData.value }
-        weatherData_[locations[index]] = getWeatherDataFromResponse(responseData)
-        state.weatherData.value = weatherData_
-      }
+    state.weatherData.value = responseDataArray.reduce(
+      (a, responseData, index) => {
+        a[locations[index]] = responseData ? getWeatherDataFromResponse(responseData) : null
+
+        return a
+      },
+      {} as IWeathers,
     )
   },
 }
