@@ -1,14 +1,23 @@
 <script lang="ts">
   // FIXME: This is test initialization
-  localStorage.setItem('locations', '["London", "Paris"]')
+  localStorage.setItem('locations', '["London", "Beijing", "Moscow"]')
+
+  const fetchInterval = 1000 * 60 // ms (= 1 min)
 </script>
 <script lang="ts" setup>
-  import store from './store/index'
+  import actions from './store/actions'
+  import state from './store/state'
 
-  store.actions.setLocationsFromLocalStorage()
-  let locations = ref(store.state.locations.value)
+  actions.initLocationsFromLocalStorage()
+  let locations = computed(() => state.locations.value)
 
-  store.actions.fetchAllWeathers()
+  actions.fetchAllWeathers()
+
+  const fetchIntervalId = setInterval(() => actions.fetchAllWeathers(), fetchInterval)
+
+  onUnmounted(() => {
+    clearInterval(fetchIntervalId)
+  })
 
 </script>
 <template>

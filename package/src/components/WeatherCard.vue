@@ -25,6 +25,7 @@
       <main-info
         class="r col col-6"
         style="height: 100px;"
+        :location="location"
       />
       <wind-info class="r col col-6" />
       <humidity-info class="r col col-6" />

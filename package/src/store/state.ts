@@ -1,4 +1,3 @@
-import type { Ref } from 'vue'
 import IWeathers from '../types/IWeathers'
 
 export default {

@@ -4,7 +4,7 @@ import getWeatherDataFromResponse from '../helpers/getWeatherDataFromResponse'
 import IWeatherResponse from '../types/IWeatherResponse'
 
 export default {
-  setLocationsFromLocalStorage() {
+  initLocationsFromLocalStorage() {
     const locations = JSON.parse(localStorage.getItem('locations') ?? '[]')
 
     state.locations.value = locations
@@ -17,11 +17,13 @@ export default {
   async fetchWeatherByLocation(location: string) {
     const url = getUrlByCityName(location)
 
-    const newWeatherData = getWeatherDataFromResponse(await (
+    const weatherData_ = { ...state.weatherData.value }
+
+    weatherData_[location] = getWeatherDataFromResponse(await (
       (await fetch(url)).json()
     ) as unknown as IWeatherResponse)
 
-      state.weatherData.value[location] = newWeatherData
+    state.weatherData.value = weatherData_
   },
 
   async fetchAllWeathers() {
@@ -36,9 +38,11 @@ export default {
     )
 
     responseDataArray.forEach(
-      (responseData, index) => (
-        state.weatherData.value[locations[index]] = getWeatherDataFromResponse(responseData)
-      )
+      (responseData, index) => {
+        const weatherData_ = { ...state.weatherData.value }
+        weatherData_[locations[index]] = getWeatherDataFromResponse(responseData)
+        state.weatherData.value = weatherData_
+      }
     )
-  }
+  },
 }
