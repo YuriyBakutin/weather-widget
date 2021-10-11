@@ -4,6 +4,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import customIconsResolver from 'custom-icons-resolver'
 import Components from 'unplugin-vue-components/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   build: {
@@ -42,6 +43,15 @@ export default defineConfig({
       script: {
         refSugar: true,
       },
+    }),
+    AutoImport({
+      imports: [
+        'vue',
+        // 'vue-i18n',
+        // '@vueuse/head',
+        // '@vueuse/core',
+      ],
+      dts: 'src/auto-imports.d.ts',
     }),
   ],
 })

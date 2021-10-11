@@ -2,7 +2,7 @@
   /* This class is used as the root class of DOM shadow. */
   /* It overrides all variables defined in the CSS library at the :root */
   /* It should follow first in each attribute "class" */
-  /* in the vue components as class="w <others classes>". */
+  /* in the vue components as class="r <others classes>". */
 
   --h00:36px;
   --h0:26px;

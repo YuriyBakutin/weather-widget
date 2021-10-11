@@ -1,7 +1,13 @@
+<script lang="ts" setup>
+  const props = defineProps<{
+      location: string,
+    }>()
+
+</script>
 <template>
   <div class="r fit relative border" style="min-height: 130px;">
     <div class="r h1 bold mt3 ml3">
-      Location
+      {{location}}
     </div>
     <waiting-spinner
       class="r absolute btn-color"

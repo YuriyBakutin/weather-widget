@@ -1,9 +1,20 @@
+<script lang="ts">
+  // FIXME: This is test initialization
+  localStorage.setItem('locations', '["London", "Paris"]')
+</script>
+<script lang="ts" setup>
+  import WStore from './store/index'
+
+  WStore.actions.setLocationsFromLocalStorage()
+  let locations = computed(() => WStore.state.locations.value)
+
+</script>
 <template>
   <div class="r relative border h2 base">
     <div>
-      <weather-card />
-      <weather-card />
-      <weather-card />
+      <weather-card
+        v-for="location in locations"
+        :location="location" />
     </div>
   </div>
 </template>
