@@ -16,6 +16,7 @@ declare module 'vue' {
     VisibilityInfo: typeof import('./../../package/src/components/VisibilityInfo.vue')['default']
     WaitingSpinner: typeof import('./../../package/src/components/WaitingSpinner.vue')['default']
     WeatherCard: typeof import('./../../package/src/components/WeatherCard.vue')['default']
+    WeatherIcon: typeof import('./../../package/src/components/WeatherIcon.vue')['default']
     WelcomeView: typeof import('./../../package/src/components/WelcomeView.vue')['default']
     WidgetHeader: typeof import('./../../package/src/components/WidgetHeader.vue')['default']
     WindInfo: typeof import('./../../package/src/components/WindInfo.vue')['default']
