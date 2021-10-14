@@ -20,7 +20,10 @@
         style="height: 100px;"
         :location="location"
       />
-      <WindInfo class="r col col-6" />
+      <WindInfo
+        class="r col col-6"
+        :location="location"
+      />
       <HumidityInfo class="r col col-6" />
       <VisibilityInfo class="r col col-6" />
       <PressureInfo class="r col col-6" />
