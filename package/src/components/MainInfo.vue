@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+  import firstLetterToUpperCase from '../helpers/firstLetterToUpperCase'
   import state from '../store/state'
 
   const props = defineProps<{
@@ -14,8 +15,10 @@
         {{Math.round(weatherData!.temperature)}}°c
       </div>
        <div class="fit left">
-        <div class="h2 fit">Feels like <b>{{Math.round(weatherData!.feelsLike)}}°C</b></div>
-        <div class="h2 fit"><b><i>{{weatherData!.description}}</i></b></div>
+        <div class="h4 fit">Feels like <b>{{Math.round(weatherData!.feelsLike)}}°C</b></div>
+        <div class="h4 fit">
+          <b>{{firstLetterToUpperCase(weatherData!.description)}}</b>
+        </div>
       </div>
     </div>
   </div>

@@ -20,7 +20,7 @@
       <div class="flex justify-start items-center">
         <WindDirectionIndicator class="ml3" :deg="windDeg" />
         <div class="ml1"><b>{{windRoseName}}</b></div>
-        <div class="ml1"><b>{{windSpeed}}</b>m/s</div>
+        <div class="ml1"><b>{{windSpeed}}</b> m/s</div>
       </div>
       <div class="ml3">
         <b>{{beaufortName}}</b>

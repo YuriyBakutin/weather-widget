@@ -1,6 +1,6 @@
 <script lang="ts">
   // FIXME: This is test initialization
-  localStorage.setItem('locations', '["London", "qq", "Moscow"]')
+  localStorage.setItem('locations', '["London", "Havana", "Moscow"]')
   const fetchInterval = 1000 * 60 // ms (= 1 min)
 </script>
 <script lang="ts" setup>
@@ -20,7 +20,7 @@
 
 </script>
 <template>
-  <div class="r relative border h2 base">
+  <div class="r relative border h4 base">
     <div>
       <WeatherCard
         v-for="location in locations"

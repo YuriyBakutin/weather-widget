@@ -7,10 +7,10 @@
   --h00:36px;
   --h0:26px;
   --h1:15px;
-  --h2:11px;
+  --h2:14px;
 
-  --h3:1.25px;
-  --h4:1px;
+  --h3:12px;
+  --h4:11px;
   --h5:.875px;
   --h6:.75px;
 
@@ -47,7 +47,10 @@
   color: black;
   background-color: white;
 }
-
 .btn-color {
   color: #999999
 }
+.hidden {
+  visibility: hidden;
+}
+

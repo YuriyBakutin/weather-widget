@@ -4,12 +4,17 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CarbonHumidity: typeof import('~icons/carbon/humidity')['default']
+    CodiconArrowSmallRight: typeof import('~icons/codicon/arrow-small-right')['default']
+    CustomIconDewPoint: typeof import('./../../../../../../src/icons/icon-components/CustomIconDewPoint.vue')['default']
     CustomIconEasel: typeof import('./../../../../../../src/icons/icon-components/CustomIconEasel.vue')['default']
+    DashiconsVisibility: typeof import('~icons/dashicons/visibility')['default']
     HumidityInfo: typeof import('./components/HumidityInfo.vue')['default']
     LocationInput: typeof import('./components/LocationInput.vue')['default']
     LocationLabel: typeof import('./components/LocationLabel.vue')['default']
     MainInfo: typeof import('./components/MainInfo.vue')['default']
     MdiTools: typeof import('~icons/mdi/tools')['default']
+    PressureIndicator: typeof import('./components/PressureIndicator.vue')['default']
     PressureInfo: typeof import('./components/PressureInfo.vue')['default']
     SettingsPopup: typeof import('./components/SettingsPopup.vue')['default']
     VisibilityInfo: typeof import('./components/VisibilityInfo.vue')['default']

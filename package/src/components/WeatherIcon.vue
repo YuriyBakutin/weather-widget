@@ -2,8 +2,8 @@
   import state from '../store/state'
 
   const props = defineProps<{
-      location: string,
-    }>()
+    location: string,
+  }>()
 
   let weatherData = computed(() => state.weatherData.value[props.location])
   // console.log('weatherData: ', weatherData)
@@ -26,7 +26,7 @@
 <template>
   <div class="flex flex-column items-center justify-center">
     <WaitingSpinner
-      class="r btn-color"
+      class="btn-color"
       :visible="!isLoaded" />
     <div
       v-show="isLoaded"

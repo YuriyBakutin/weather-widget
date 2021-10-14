@@ -10,7 +10,7 @@ const beaufortScale = [
     minSpeed: 32.7
   },
   {
-    name: 'Violent Storm',
+    name: 'Violent storm',
     minSpeed: 28.5
   },
   {
@@ -18,7 +18,7 @@ const beaufortScale = [
     minSpeed: 24.5
   },
   {
-    name: 'Strong Gale',
+    name: 'Strong gale',
     minSpeed: 20.8
   },
   {
@@ -26,31 +26,31 @@ const beaufortScale = [
     minSpeed: 17.2
   },
   {
-    name: 'Near Gale',
+    name: 'Near gale',
     minSpeed: 13.9,
   },
   {
-    name: 'Strong Breeze',
+    name: 'Strong breeze',
     minSpeed: 10.8,
   },
   {
-    name: 'Fresh Breeze',
+    name: 'Fresh breeze',
     minSpeed: 8,
   },
   {
-    name: 'Moderate Breeze',
+    name: 'Moderate breeze',
     minSpeed: 5.5,
   },
   {
-    name: 'Gentle Breeze',
+    name: 'Gentle breeze',
     minSpeed: 3.4,
   },
   {
-    name: 'Light Breeze',
+    name: 'Light breeze',
     minSpeed: 1.6,
   },
   {
-    name: 'Light Air',
+    name: 'Light air',
     minSpeed: 0.5,
   },
   {
