@@ -43,23 +43,9 @@ export default {
     )
 
     responseDataArray.forEach(
-      (responseData, index) => {
-        const weather = getWeatherDataFromResponse(responseData)
-
-// FIXME: Temporary code for reactivity testing
-        if (weather) {
-          weather!.temperature = Date.now()
-        }
-
-        state.weatherData.value[
+      (responseData, index) => { state.weatherData.value[
           locations.value[index]
         ] = getWeatherDataFromResponse(responseData)
-
-// // --- Normal code
-//         state.weatherData.value[
-//           locations.value[index]
-//         ] = getWeatherDataFromResponse(responseData)
-// // ------------
       }
     )
   },

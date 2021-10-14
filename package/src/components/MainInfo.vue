@@ -6,9 +6,6 @@
   }>()
 
   let weatherData = computed(() => state.weatherData.value[props.location])
-
-// FIXME: Temporary code for reactivity testing
-  watchEffect(() => console.log('weatherData: ', state.weatherData.value))
 </script>
 <template>
   <div class="px3 py1 flex flex-column justify-center" style="height: 100rem;">

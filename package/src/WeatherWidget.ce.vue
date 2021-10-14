@@ -1,8 +1,7 @@
 <script lang="ts">
   // FIXME: This is test initialization
   localStorage.setItem('locations', '["London", "qq", "Moscow"]')
-  // FIXME: Test fetchInterval value = 1 s
-  const fetchInterval = 1000 // * 60 // ms (= 1 min)
+  const fetchInterval = 1000 * 60 // ms (= 1 min)
 </script>
 <script lang="ts" setup>
   import actions from './store/actions'
