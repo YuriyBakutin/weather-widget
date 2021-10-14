@@ -1,5 +1,6 @@
+import type { Ref } from 'vue'
 import IWeather from './IWeather'
 
 export default interface IWeathers {
-  [key: string]: IWeather | null
+  [key: string]: Ref<IWeather | null>
 }

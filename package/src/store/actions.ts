@@ -4,6 +4,10 @@ import getWeatherDataFromResponse from '../helpers/getWeatherDataFromResponse'
 import IWeatherResponse from '../types/IWeatherResponse'
 import IWeathers from '../types/IWeathers'
 
+const getWeatherResponseByLocation = async (location: string) => fetch(getUrlByCityName(location))
+.then((response) => response.ok ? response.json() : null)
+.catch(() => null) as unknown as IWeatherResponse | null
+
 export default {
   initLocationsFromLocalStorage() {
     const locations = JSON.parse(localStorage.getItem('locations') ?? '[]')
@@ -16,43 +20,47 @@ export default {
   },
 
   async fetchWeatherByLocation(location: string) {
-    const url = getUrlByCityName(location)
+    const response = await getWeatherResponseByLocation(location)
 
-    const response = await fetch(url)
-
-    if (!response.ok) {
+    if (response === null) {
       return false
     }
 
-    const weatherData_ = { ...state.weatherData.value }
-
-    weatherData_[location] = getWeatherDataFromResponse(
-      (await response.json()) as unknown as IWeatherResponse
-    )
-
-    state.weatherData.value = weatherData_
+    state.weatherData.value[location] = getWeatherDataFromResponse(response)
 
     return true
   },
 
   async fetchAllWeathers() {
-    const locations = state.locations.value
+    const locations = computed(() => state.locations.value)
 
     const responseDataArray = await Promise.all(
-      locations.map(
+      locations.value.map(
         (location) => fetch(getUrlByCityName(location))
           .then((response) => response.ok ? response.json() : null)
           .catch(() => null) as unknown as IWeatherResponse | null
       )
     )
 
-    state.weatherData.value = responseDataArray.reduce(
-      (a, responseData, index) => {
-        a[locations[index]] = responseData ? getWeatherDataFromResponse(responseData) : null
+    responseDataArray.forEach(
+      (responseData, index) => {
+        const weather = getWeatherDataFromResponse(responseData)
 
-        return a
-      },
-      {} as IWeathers,
+// FIXME: Temporary code for reactivity testing
+        if (weather) {
+          weather!.temperature = Date.now()
+        }
+
+        state.weatherData.value[
+          locations.value[index]
+        ] = getWeatherDataFromResponse(responseData)
+
+// // --- Normal code
+//         state.weatherData.value[
+//           locations.value[index]
+//         ] = getWeatherDataFromResponse(responseData)
+// // ------------
+      }
     )
   },
 }
