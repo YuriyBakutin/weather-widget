@@ -9,7 +9,7 @@
     <div class="r h1 bold mt3 ml3">
       {{location}}
     </div>
-    <waiting-spinner
+    <WaitingSpinner
       class="r absolute btn-color"
       style="top: 56px; left: 40px"
       v-if="false" />
@@ -22,15 +22,15 @@
           alt="Weather Icon"
           style="width: 100px; height: 100px;" />
       </div>
-      <main-info
+      <MainInfo
         class="r col col-6"
         style="height: 100px;"
         :location="location"
       />
-      <wind-info class="r col col-6" />
-      <humidity-info class="r col col-6" />
-      <visibility-info class="r col col-6" />
-      <pressure-info class="r col col-6" />
+      <WindInfo class="r col col-6" />
+      <HumidityInfo class="r col col-6" />
+      <VisibilityInfo class="r col col-6" />
+      <PressureInfo class="r col col-6" />
     </section>
   </div>
 </template>

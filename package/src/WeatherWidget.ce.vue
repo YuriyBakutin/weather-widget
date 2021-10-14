@@ -22,7 +22,7 @@
 <template>
   <div class="r relative border h2 base">
     <div>
-      <weather-card
+      <WeatherCard
         v-for="location in locations"
         :location="location" />
     </div>
