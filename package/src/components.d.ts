@@ -18,6 +18,7 @@ declare module 'vue' {
     WeatherIcon: typeof import('./components/WeatherIcon.vue')['default']
     WelcomeView: typeof import('./components/WelcomeView.vue')['default']
     WidgetHeader: typeof import('./components/WidgetHeader.vue')['default']
+    WindDirectionIndicator: typeof import('./components/WindDirectionIndicator.vue')['default']
     WindInfo: typeof import('./components/WindInfo.vue')['default']
   }
 }

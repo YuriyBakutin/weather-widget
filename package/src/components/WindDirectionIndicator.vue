@@ -3,9 +3,10 @@
 
   const props = withDefaults(
     defineProps<{
-      deg: number,
+      deg?: number,
       size?: number,
     }>(), {
+      deg: 0,
       size: 14,
     }
   )
