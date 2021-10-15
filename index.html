@@ -5,10 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index.html</title>
+    <style>
+      .layout {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        justify-items: start;
+      }
+      .code {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <weather-widget />
+    <div class="layout">
+      <div>
+        <h1>This is a test page of the WeatherWidget</h1>
+        <p>To work with the WeatherWidget, you need your openweather API service token.
+        <br>If you don't have it, you need to go to https://home.openweathermap.org,
+        <br>log in and get it. It's free.</p>
+        <input type="text" id="token" placeholder="Enter your token" />
+        <button onclick="saveToken()" >OK</button>
+        <p>To include a widget in your site's page, before initializing it,
+        <br>place your token in the localStorage with the following command:</p>
+        <p class="code">localSorage.setItem('WeatherWidgetToken', --Your token--)</p>
+      </div>
+      <weather-widget />
+    </div>
     <script type="text/javascript"
       src="./package/dist/index.iife.js"></script>
+    <script type="text/javascript">
+      const saveToken = () => {
+        const token = document.querySelector('#token').value
+        localStorage.setItem('WeatherWidgetToken', token)
+        location.reload()
+      }
+    </script>
   </body>
 </html>
