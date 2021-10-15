@@ -1,6 +1,6 @@
 <script lang="ts">
   // FIXME: This is test initialization
-  localStorage.setItem('locations', '["London", "Havana", "Moscow"]')
+  localStorage.setItem('locations', '["London", "Havana", "Saint Petersburg"]')
   const fetchInterval = 1000 * 60 // ms (= 1 min)
 </script>
 <script lang="ts" setup>
@@ -17,7 +17,6 @@
   onUnmounted(() => {
     clearInterval(fetchIntervalId)
   })
-
 </script>
 <template>
   <div class="r relative border h4 base">

@@ -15,13 +15,13 @@
   <div class="px3" v-if="weatherData">
     <div class="flex justify-start items-center">
       <carbon-humidity class="h3" />
-      <div class="ml3"><b>{{humidity}}</b> %</div>
+      <div class="ml3 h3"><b>{{humidity}} %</b></div>
     </div>
     <div
       v-if="(temperature != null) &&  temperature >= 0"
-      class="flex justify-start items-center">
+      class="flex justify-start items-center mt1">
       <custom-icon-dew-point class="h1" />
-      <div class="ml3"><b>{{dewPoint}}</b>°C</div>
+      <div class="ml3 h3"><b>{{dewPoint}}°C</b></div>
     </div>
   </div>
 </template>

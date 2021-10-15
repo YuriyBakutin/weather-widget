@@ -15,8 +15,8 @@
     v-if="weatherData">
     <dashicons-visibility class="ml3"/>
     <codicon-arrow-small-right class="h1"/>
-    <div class="ml1">
-      <b>{{distanceData.distance}}</b> {{distanceData.unit}}
+    <div class="ml1 h3">
+      <b>{{distanceData.distance}} {{distanceData.unit}}</b>
     </div>
   </div>
 </template>

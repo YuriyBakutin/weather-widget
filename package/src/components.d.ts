@@ -8,6 +8,7 @@ declare module 'vue' {
     CodiconArrowSmallRight: typeof import('~icons/codicon/arrow-small-right')['default']
     CustomIconDewPoint: typeof import('./../../../../../../src/icons/icon-components/CustomIconDewPoint.vue')['default']
     CustomIconEasel: typeof import('./../../../../../../src/icons/icon-components/CustomIconEasel.vue')['default']
+    CustomIconPalm: typeof import('./../../../../../../src/icons/icon-components/CustomIconPalm.vue')['default']
     DashiconsVisibility: typeof import('~icons/dashicons/visibility')['default']
     HumidityInfo: typeof import('./components/HumidityInfo.vue')['default']
     LocationInput: typeof import('./components/LocationInput.vue')['default']

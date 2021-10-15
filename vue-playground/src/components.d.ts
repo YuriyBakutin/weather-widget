@@ -9,6 +9,7 @@ declare module 'vue' {
     CustomIconDewPoint: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconDewPoint.vue')['default']
     CustomIconEasel: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconEasel.vue')['default']
     CustomIconGauge: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconGauge.vue')['default']
+    CustomIconPalm: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconPalm.vue')['default']
     DashiconsVisibility: typeof import('~icons/dashicons/visibility')['default']
     HumidityInfo: typeof import('./../../package/src/components/HumidityInfo.vue')['default']
     IcSharpVisibility: typeof import('~icons/ic/sharp-visibility')['default']
