@@ -1,12 +1,12 @@
 <script lang="ts" setup>
   import firstLetterToUpperCase from '../helpers/firstLetterToUpperCase'
-  import state from '../store/state'
+  import store from '../store'
 
   const props = defineProps<{
     location: string,
   }>()
 
-  let weatherData = computed(() => state.weatherData.value[props.location])
+  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
 </script>
 <template>
   <div class="px3 py1 flex flex-column justify-center" style="height: 100rem;">
@@ -21,7 +21,7 @@
             <custom-icon-palm class="h0 mt1" />
           </div>
         </div>
-        <div class="h3 fit line-height-1">
+        <div class="h3 mt1 fit line-height-1">
           <b>{{firstLetterToUpperCase(weatherData!.description)}}</b>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import state from '../store/state'
+  import store from '../store'
   import getBeaufortName from '../helpers/getBeaufortName'
   import getWindRoseName from '../helpers/getWindRoseName'
 
@@ -7,7 +7,7 @@
     location: string,
   }>()
 
-  let weatherData = computed(() => state.weatherData.value[props.location])
+  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
 
   let windDeg = computed(() => weatherData.value?.windDeg)
   let windRoseName = computed(() => getWindRoseName(windDeg.value))

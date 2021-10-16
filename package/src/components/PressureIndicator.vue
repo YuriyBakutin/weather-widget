@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-  import state from '../store/state'
-
   const props = withDefaults(
     defineProps<{
       deg?: number,

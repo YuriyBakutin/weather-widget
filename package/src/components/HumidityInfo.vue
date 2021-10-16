@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-  import state from '../store/state'
+  import store from '../store'
   import getDewPoint from '../helpers/getDewPoint'
 
   const props = defineProps<{
     location: string,
   }>()
 
-  let weatherData = computed(() => state.weatherData.value[props.location])
+  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
   let humidity = computed(() => weatherData.value?.humidity)
   let temperature = computed(() => weatherData.value?.temperature)
   let dewPoint = computed(() => getDewPoint(humidity.value, temperature.value).toFixed(0))

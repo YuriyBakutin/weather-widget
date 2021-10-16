@@ -1,8 +1,7 @@
 import state from './state'
-import getUrlByCityName from '../helpers/getUrlByCityName'
-import getWeatherDataFromResponse from '../helpers/getWeatherDataFromResponse'
-import IWeatherResponse from '../types/IWeatherResponse'
-import IWeathers from '../types/IWeathers'
+import getUrlByCityName from '../../helpers/getUrlByCityName'
+import getWeatherDataFromResponse from '../../helpers/getWeatherDataFromResponse'
+import IWeatherResponse from '../../types/IWeatherResponse'
 
 const getWeatherResponseByLocation = async (location: string) => fetch(getUrlByCityName(location))
 .then((response) => response.ok ? response.json() : null)
@@ -13,22 +12,6 @@ export default {
     const locations = JSON.parse(localStorage.getItem('locations') ?? '[]')
 
     state.locations.value = locations
-  },
-
-  updateLocationsInLocalStorage() {
-    localStorage.setItem('locations', JSON.stringify(state.locations.value))
-  },
-
-  async fetchWeatherByLocation(location: string) {
-    const response = await getWeatherResponseByLocation(location)
-
-    if (response === null) {
-      return false
-    }
-
-    state.weatherData.value[location] = getWeatherDataFromResponse(response)
-
-    return true
   },
 
   async fetchAllWeathers() {
@@ -43,7 +26,7 @@ export default {
     )
 
     responseDataArray.forEach(
-      (responseData, index) => { state.weatherData.value[
+      (responseData, index) => { state.weathersData.value[
           locations.value[index]
         ] = getWeatherDataFromResponse(responseData)
       }

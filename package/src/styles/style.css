@@ -41,16 +41,45 @@
 
 }
 .base {
-  width: 200px;
+  box-sizing: border-box;
+  width: 202px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 1.5em;
   color: black;
   background-color: white;
+  overflow: hidden;
 }
-.btn-color {
-  color: #999999
+.base-settings {
+  background-color: #fafafa;
+  filter: blur(3px);
+  margin-left: -1px;
+  margin-top: -1px;
 }
 .hidden {
   visibility: hidden;
+}
+.btn {
+  cursor: pointer;
+  z-index: 10;
+}
+.btn-color {
+  color: #666666
+}
+.off-btn-color {
+  color: #999999
+}
+.input {
+  border: 1px solid #ffcbbd;
+  outline: none;
+  padding: 2px;
+}
+.input:focus {
+  border-width: 2px;
+  padding: 1px;
+}
+.input-error {
+  background-color: #ffecec;
+}
+.text-error {
+  color: #8f0000;
 }
 

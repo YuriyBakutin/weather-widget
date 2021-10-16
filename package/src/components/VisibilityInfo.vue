@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-  import state from '../store/state'
+  import store from '../store'
   import getDistanceString from '../helpers/getDistanceString'
 
   const props = defineProps<{
     location: string,
   }>()
 
-  let weatherData = computed(() => state.weatherData.value[props.location])
+  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
   let distanceData = computed(() => getDistanceString(weatherData.value?.visibility))
 </script>
 <template>

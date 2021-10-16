@@ -4,23 +4,29 @@
   const fetchInterval = 1000 * 60 // ms (= 1 min)
 </script>
 <script lang="ts" setup>
-  import actions from './store/actions'
-  import state from './store/state'
+  import store from './store'
 
-  actions.initLocationsFromLocalStorage()
-  let locations = computed(() => state.locations.value)
+  let settingsMode = computed(() => store.settings.state.settingsMode.value)
+  store.data.actions.initLocationsFromLocalStorage()
+  let locations = computed(() => store.data.state.locations.value)
+  store.data.actions.fetchAllWeathers()
+  const fetchIntervalId = setInterval(() => store.data.actions.fetchAllWeathers(), fetchInterval)
 
-  actions.fetchAllWeathers()
-
-  const fetchIntervalId = setInterval(() => actions.fetchAllWeathers(), fetchInterval)
+  const openSettingsForm = () => {
+    store.settings.state.settingsMode.value = true
+  }
 
   onUnmounted(() => {
     clearInterval(fetchIntervalId)
   })
 </script>
 <template>
-  <div class="r relative border h4 base">
-    <div>
+  <div class="r relative base">
+    <SettingsPopup class="absolute left-0 top-0 z1" v-if="settingsMode"/>
+    <div class="h4 border" :class="settingsMode ? 'base-settings' : 'base'">
+      <octicon-gear-16
+        class="absolute right-0 top-0 mt2 mr2 h1 btn-color btn"
+        @click="openSettingsForm()"/>
       <WeatherCard
         v-for="location in locations"
         :location="location" />

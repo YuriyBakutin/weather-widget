@@ -5,12 +5,14 @@
 declare module 'vue' {
   export interface GlobalComponents {
     CarbonHumidity: typeof import('~icons/carbon/humidity')['default']
+    CiCloseBig: typeof import('~icons/ci/close-big')['default']
     CodiconArrowSmallRight: typeof import('~icons/codicon/arrow-small-right')['default']
     CustomIconDewPoint: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconDewPoint.vue')['default']
     CustomIconEasel: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconEasel.vue')['default']
     CustomIconGauge: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconGauge.vue')['default']
     CustomIconPalm: typeof import('./../../../../../../package/src/icons/icon-components/CustomIconPalm.vue')['default']
     DashiconsVisibility: typeof import('~icons/dashicons/visibility')['default']
+    FluentArrowEnterLeft20Filled: typeof import('~icons/fluent/arrow-enter-left20-filled')['default']
     HumidityInfo: typeof import('./../../package/src/components/HumidityInfo.vue')['default']
     IcSharpVisibility: typeof import('~icons/ic/sharp-visibility')['default']
     LocationInput: typeof import('./../../package/src/components/LocationInput.vue')['default']

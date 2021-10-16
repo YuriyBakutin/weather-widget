@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-  import state from '../store/state'
+  import store from '../store'
 
   const props = defineProps<{
     location: string,
   }>()
 
-  let weatherData = computed(() => state.weatherData.value[props.location])
+  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
   // console.log('weatherData: ', weatherData)
   // console.log('weatherData.value!.iconId: ', weatherData.value?.iconId);
 
