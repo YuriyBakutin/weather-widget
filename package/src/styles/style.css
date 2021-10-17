@@ -78,6 +78,9 @@
 .input-error {
   background-color: #ffecec;
 }
+.handle {
+  cursor: default;
+}
 .text-error {
   color: #8f0000;
 }

@@ -10,10 +10,9 @@
 </script>
 <template>
   <div class="fit my3 p1 clearfix control-box">
-    <cil-hamburger-menu class="h1 col col-1" />
-    <div class="h1 pl1 col col-10">{{location}}</div>
+    <div class="h1 pl1 col col-11 handle">{{location}}</div>
     <fluent-delete-24-regular
-      class="h1 col col-1"
+      class="h1 col col-1 btn"
       @click="$emit('removeLocation', location)" />
   </div>
 </template>

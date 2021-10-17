@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+  import { VueDraggableNext } from 'vue-draggable-next'
   import { useStore } from '../store'
   import { storeToRefs } from 'pinia'
 
   const store = useStore()
-  const { settingsMode } = storeToRefs(store)
+  const { settingsMode, locations } = storeToRefs(store)
 
   const closeSettingsForm = () => {
     settingsMode.value = false
@@ -21,10 +22,12 @@
       class="absolute top-0 right-0 mt1 mr1 h1 btn-color btn"
       @click="closeSettingsForm()"/>
     <div class="h1 bold mb2">Settings</div>
-    <LocationLabel
-      v-for="location in store.locations"
-      :location="location"
-      @removeLocation="removeLocation" />
-    <LocationInput />
+    <VueDraggableNext class="dragArea list-group w-full" :list="locations">
+      <LocationHandle
+        v-for="location in locations"
+        :location="location"
+        @removeLocation="removeLocation" />
+      <LocationInput />
+    </VueDraggableNext>
   </div>
 </template>

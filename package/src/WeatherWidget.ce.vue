@@ -22,7 +22,10 @@
 <template>
   <div class="r relative base">
     <SettingsPopup class="absolute left-0 top-0 z1" v-if="settingsMode"/>
-    <div class="h4 border" :class="settingsMode ? 'base-settings' : 'base'">
+    <WelcomeView v-if="!locations.length" :class="settingsMode ? 'base-settings' : 'base'" />
+    <div
+      v-else
+      class="h4 border" :class="settingsMode ? 'base-settings' : 'base'">
       <octicon-gear-16
         class="absolute right-0 top-0 mt2 mr2 h1 btn-color btn"
         @click="openSettingsForm()"/>

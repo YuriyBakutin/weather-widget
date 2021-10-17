@@ -15,11 +15,13 @@ specifiers:
   vite: ^2.5.0-beta.2
   vite-dts: ^1.0.3
   vue: ^3.2.1
+  vue-draggable-next: ^2.1.0
   vue-tsc: ^0.2.2
 
 dependencies:
   pinia: 2.0.0-rc.13_typescript@4.4.3+vue@3.2.20
   vue: 3.2.20
+  vue-draggable-next: 2.1.0_vue@3.2.20
 
 devDependencies:
   '@iconify/json': 1.1.412
@@ -1574,6 +1576,25 @@ packages:
       '@vue/composition-api':
         optional: true
     dependencies:
+      vue: 3.2.20
+    dev: false
+
+  /vue-draggable-next/2.1.0_vue@3.2.20:
+    resolution: {integrity: sha512-xRMtOUxX/hYtY1C0irGJI1Opx9WRfQPwAqDR0qU3Tusa+iSxvTtiC3IQioU4THYmyior6V27rl0V8T3M19i/PA==}
+    peerDependencies:
+      sortablejs: ^1.14.0
+      vue: ^3.2.2
+    dependencies:
+      vue: 3.2.20
+      vue-router: 4.0.12_vue@3.2.20
+    dev: false
+
+  /vue-router/4.0.12_vue@3.2.20:
+    resolution: {integrity: sha512-CPXvfqe+mZLB1kBWssssTiWg4EQERyqJZes7USiqfW9B5N2x+nHlnsM1D3b5CaJ6qgCvMmYJnz+G0iWjNCvXrg==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@vue/devtools-api': 6.0.0-beta.19
       vue: 3.2.20
     dev: false
 
