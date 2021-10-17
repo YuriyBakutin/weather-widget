@@ -62,7 +62,8 @@
         :class="waiting ? 'disabled' : ''"
         type="text"
         v-model="city"
-        placeholder="Add Location" />
+        placeholder="Add Location"
+        @keyup.enter="locationValidate()" />
       <fluent-arrow-enter-left-20-filled
         class="h1 mt1 col-1"
         :class="city ? 'btn' : '', city ?  'btn-color' : 'off-btn-color'"
