@@ -1,45 +1,47 @@
 <script lang="ts" setup>
+  import IWeather from '../types/IWeather'
+
   const props = defineProps<{
-    location: string,
+    weatherData: IWeather,
   }>()
 
 </script>
 <template>
   <div class="fit relative" style="min-height: 130px;">
     <div class="h1 bold mt3 ml3">
-      {{location}}
+      {{props.weatherData.city}}
     </div>
     <div>
       <div class="clearfix">
         <WeatherIcon
           class="col col-6"
           style="height: 100px;"
-          :location="location"
+          :weatherData="weatherData"
         />
         <MainInfo
           class="col col-6"
           style="height: 100px;"
-          :location="location"
+          :weatherData="weatherData"
         />
       </div>
       <div class="clearfix">
         <WindInfo
           class="col col-6"
-          :location="location"
+          :weatherData="weatherData"
         />
         <HumidityInfo
           class="col col-6"
-          :location="location"
+          :weatherData="weatherData"
         />
       </div>
       <div class="clearfix">
         <VisibilityInfo
           class="col col-6"
-          :location="location"
+          :weatherData="weatherData"
         />
         <PressureInfo
           class="col col-6"
-          :location="location"
+          :weatherData="weatherData"
         />
       </div>
     </div>

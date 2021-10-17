@@ -1,18 +1,20 @@
 <script lang="ts" setup>
-  import store from '../store'
+  import { useStore } from '../store'
+  import { storeToRefs } from 'pinia'
 
-
+  const store = useStore()
+  const { settingsMode } = storeToRefs(store)
 
   const closeSettingsForm = () => {
-    store.settings.state.settingsMode.value = false
+    settingsMode.value = false
   }
 </script>
 <template>
-  <div class="base border relative">
+  <div class="base border relative p3">
     <ci-close-big
       class="absolute top-0 right-0 mt1 mr1 h1 btn-color btn"
       @click="closeSettingsForm()"/>
-    <div class="h1 bold mt3 ml3">Settings</div>
+    <div class="h1 bold">Settings</div>
     <location-input />
   </div>
 </template>

@@ -1,25 +1,24 @@
 <script lang="ts" setup>
-  import store from '../store'
+  import IWeather from '../types/IWeather'
   import getBeaufortName from '../helpers/getBeaufortName'
   import getWindRoseName from '../helpers/getWindRoseName'
+  import { useStore } from '../store'
+
+  const store = useStore()
 
   const props = defineProps<{
-    location: string,
+    weatherData: IWeather,
   }>()
 
-  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
-
-  let windDeg = computed(() => weatherData.value?.windDeg)
-  let windRoseName = computed(() => getWindRoseName(windDeg.value))
-  let windSpeed = computed(() => weatherData.value?.windSpeed.toFixed(1))
-  let beaufortName = computed(() => getBeaufortName(weatherData.value?.windSpeed))
+  const windRoseName = computed(() => getWindRoseName(props.weatherData.windDeg))
+  const beaufortName = computed(() => getBeaufortName(props.weatherData.windSpeed))
 </script>
 <template>
-  <div v-if="weatherData" class="mb1 h4">
+  <div v-if="props.weatherData.isLoaded" class="mb1 h4">
     <div class="flex justify-start items-baseline">
-      <WindDirectionIndicator class="ml3" :deg="windDeg" />
+      <WindDirectionIndicator class="ml3" :deg="props.weatherData.windDeg" />
       <div class="ml1 h5"><b>{{windRoseName}}</b></div>
-      <div class="ml1 h3"><b>{{windSpeed}} m/s</b></div>
+      <div class="ml1 h3"><b>{{props.weatherData.windSpeed?.toFixed(1)}} m/s</b></div>
     </div>
     <div class="ml3 mt1 h3 line-height-1">
       <b>{{beaufortName}}</b>

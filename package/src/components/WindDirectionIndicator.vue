@@ -9,7 +9,7 @@
     }
   )
 
-  let transformString = computed(() => `rotate(${props.deg + 180},29.830955,29.809854)`)
+  const transformString = computed(() => `rotate(${props.deg + 180},29.830955,29.809854)`)
 
 </script>
 <template>

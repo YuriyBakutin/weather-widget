@@ -1,22 +1,13 @@
 <script lang="ts" setup>
-  import store from '../store'
+  import IWeather from '../types/IWeather'
+  import getWeatherImageUrl from '../helpers/getWeatherImageUrl'
 
   const props = defineProps<{
-    location: string,
+    weatherData: IWeather,
   }>()
 
-  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
-  // console.log('weatherData: ', weatherData)
-  // console.log('weatherData.value!.iconId: ', weatherData.value?.iconId);
-
-  const weatherImageUrl = computed(() => !weatherData.value
-    ? ''
-    : `http://openweathermap.org/img/wn/${weatherData.value!.iconId}@2x.png`
-  )
-
-  console.log('weatherImageUrl: ', weatherImageUrl.value)
-
-  let isLoaded = ref(false)
+  const weatherImageUrl = computed(() => getWeatherImageUrl(props.weatherData.iconId))
+  const isLoaded = ref(false)
 
   const onImgLoad = () => {
     isLoaded.value = true
@@ -27,12 +18,12 @@
   <div class="flex flex-column items-center justify-center">
     <WaitingSpinner
       class="btn-color"
-      :visible="!isLoaded" />
+      :visible="!props.weatherData.isLoaded" />
     <div
-      v-show="isLoaded"
+      v-show="props.weatherData.isLoaded"
       style="height: 100px;">
       <img
-          v-show="isLoaded"
+          v-show="props.weatherData.isLoaded"
           :src="weatherImageUrl"
           style="width: 100px; height: 100px;"
           @load="onImgLoad" />

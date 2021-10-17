@@ -18,5 +18,6 @@ export default (weatherResponse: IWeatherResponse | null) => {
     pressure: weatherResponse!.main.pressure,
     humidity: weatherResponse!.main.humidity,
     visibility: weatherResponse!.visibility,
+    isLoaded: true,
   }
 }

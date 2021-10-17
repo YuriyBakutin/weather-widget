@@ -9,7 +9,7 @@ export default interface IWeather {
   windSpeed: number,
   windDeg: number,
   pressure: number,
-
   humidity: number,
   visibility: number,
+  isLoaded: boolean,
 }

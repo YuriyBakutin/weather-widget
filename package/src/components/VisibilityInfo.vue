@@ -1,18 +1,17 @@
 <script lang="ts" setup>
-  import store from '../store'
+  import IWeather from '../types/IWeather'
   import getDistanceString from '../helpers/getDistanceString'
 
   const props = defineProps<{
-    location: string,
+    weatherData: IWeather,
   }>()
 
-  let weatherData = computed(() => store.data.state.weathersData.value[props.location])
-  let distanceData = computed(() => getDistanceString(weatherData.value?.visibility))
+  const distanceData = computed(() => getDistanceString(props.weatherData.visibility))
 </script>
 <template>
   <div
     class="my3 flex justify-start items-center"
-    v-if="weatherData">
+    v-if="props.weatherData.isLoaded">
     <dashicons-visibility class="ml3"/>
     <codicon-arrow-small-right class="h1"/>
     <div class="ml1 h3">

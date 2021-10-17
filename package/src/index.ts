@@ -1,6 +1,10 @@
 import { defineCustomElement } from 'vue'
-import WeatherWidgetStyles from './WeatherWidget.ce.vue'
+import WeatherWidget from './WeatherWidget.ce.vue'
+import { createPinia } from 'pinia'
 
-const WeatherWidget = defineCustomElement(WeatherWidgetStyles)
+const app = createApp(WeatherWidget)
+app.use(createPinia())
 
-customElements.define('weather-widget', WeatherWidget)
+const WeatherWidgetElement = defineCustomElement(WeatherWidget)
+
+customElements.define('weather-widget', WeatherWidgetElement)

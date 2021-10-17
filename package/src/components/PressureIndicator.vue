@@ -10,7 +10,6 @@
   )
 
   let transformString = computed(() => `rotate(${props.deg},33.866688,33.866438)`)
-
 </script>
 <template>
   <svg

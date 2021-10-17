@@ -7,6 +7,7 @@ specifiers:
   '@vitejs/plugin-vue': ^1.4.0
   '@vue/compiler-sfc': ^3.2.1
   custom-icons-resolver: ^1.0.12
+  pinia: ^2.0.0-rc.13
   typescript: ^4.3.5
   unplugin-auto-import: ^0.4.12
   unplugin-icons: ^0.12.7
@@ -17,6 +18,7 @@ specifiers:
   vue-tsc: ^0.2.2
 
 dependencies:
+  pinia: 2.0.0-rc.13_typescript@4.4.3+vue@3.2.20
   vue: 3.2.20
 
 devDependencies:
@@ -272,6 +274,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.20
       '@vue/shared': 3.2.20
+
+  /@vue/devtools-api/6.0.0-beta.19:
+    resolution: {integrity: sha512-ObzQhgkoVeoyKv+e8+tB/jQBL2smtk/NmC9OmFK8UqdDpoOdv/Kf9pyDWL+IFyM7qLD2C75rszJujvGSPSpGlw==}
+    dev: false
 
   /@vue/reactivity/3.2.20:
     resolution: {integrity: sha512-nSmoLojUTk+H8HNTAkrUduB4+yIUBK2HPihJo2uXVSH4Spry6oqN6lFzE5zpLK+F27Sja+UqR9R1+/kIOsHV5w==}
@@ -1057,6 +1063,24 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
+  /pinia/2.0.0-rc.13_typescript@4.4.3+vue@3.2.20:
+    resolution: {integrity: sha512-NLOqK+tCIx1a4qZByqLZVdAK7ilTxkG6Opmj1O8hTjxpu4VSO2+eL2pPcO3JE/4ifZ6FBx87X2DU7NTY36z7Bw==}
+    peerDependencies:
+      '@vue/composition-api': ^1.2.4
+      typescript: ^4.4.3
+      vue: ^2.6.14 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      typescript:
+        optional: true
+    dependencies:
+      '@vue/devtools-api': 6.0.0-beta.19
+      typescript: 4.4.3
+      vue: 3.2.20
+      vue-demi: 0.11.4_vue@3.2.20
+    dev: false
+
   /postcss/8.3.9:
     resolution: {integrity: sha512-f/ZFyAKh9Dnqytx5X62jgjhhzttjZS7hMsohcI7HEI5tjELX/HxCy3EFhsRxyzGvrzFF+82XPvCS8T9TFleVJw==}
     engines: {node: ^10 || ^12 || >=14}
@@ -1537,6 +1561,21 @@ packages:
       vscode-pug-languageservice: 0.27.24
       vscode-typescript-languageservice: 0.27.25
     dev: true
+
+  /vue-demi/0.11.4_vue@3.2.20:
+    resolution: {integrity: sha512-/3xFwzSykLW2HiiLie43a+FFgNOcokbBJ+fzvFXd0r2T8MYohqvphUyDQ8lbAwzQ3Dlcrb1c9ykifGkhSIAk6A==}
+    engines: {node: '>=12'}
+    hasBin: true
+    requiresBuild: true
+    peerDependencies:
+      '@vue/composition-api': ^1.0.0-rc.1
+      vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+    dependencies:
+      vue: 3.2.20
+    dev: false
 
   /vue-tsc/0.2.3_typescript@4.4.3:
     resolution: {integrity: sha512-0ahxAnQolmv6EOnv5zxeMi4vCpM4PkhjU70i/EI44OzMWq4OErjLZhEh8EXOLtMx6FBRuuqS5fiBXcuqLpoL7Q==}

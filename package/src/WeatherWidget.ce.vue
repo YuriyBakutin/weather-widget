@@ -4,16 +4,19 @@
   const fetchInterval = 1000 * 60 // ms (= 1 min)
 </script>
 <script lang="ts" setup>
-  import store from './store'
+  import { useStore } from './store'
+  import { storeToRefs } from 'pinia'
 
-  let settingsMode = computed(() => store.settings.state.settingsMode.value)
-  store.data.actions.initLocationsFromLocalStorage()
-  let locations = computed(() => store.data.state.locations.value)
-  store.data.actions.fetchAllWeathers()
-  const fetchIntervalId = setInterval(() => store.data.actions.fetchAllWeathers(), fetchInterval)
+  const store = useStore()
+  const { settingsMode, locations } = storeToRefs(store)
+
+  store.initLocationsFromLocalStorage()
+  store.fetchAllWeathers()
+
+  const fetchIntervalId = setInterval(() => store.fetchAllWeathers(), fetchInterval)
 
   const openSettingsForm = () => {
-    store.settings.state.settingsMode.value = true
+    settingsMode.value = true
   }
 
   onUnmounted(() => {
@@ -29,7 +32,8 @@
         @click="openSettingsForm()"/>
       <WeatherCard
         v-for="location in locations"
-        :location="location" />
+        :weatherData="store.getWeatherDataByLocation(location)"
+        />
     </div>
   </div>
 </template>

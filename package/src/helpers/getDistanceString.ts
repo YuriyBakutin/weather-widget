@@ -1,7 +1,7 @@
-export default (distance: number | undefined) => {
+export default (distance: number | undefined): {distance: string, unit: string} => {
   if (distance == undefined || distance < 0) {
     return {
-      distance: 0,
+      distance: '0',
       unit: ''
     }
   }
