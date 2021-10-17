@@ -58,13 +58,13 @@
     <div
       class="fit flex flex-row justify-around clearfix">
       <input
-        class="input mt2 mr2 h2 col col-11"
+        class="input mr2 h2 col col-11"
         :class="waiting ? 'disabled' : ''"
         type="text"
         v-model="city"
         placeholder="Add Location" />
       <fluent-arrow-enter-left-20-filled
-        class="h1 mt4 col-1"
+        class="h1 mt1 col-1"
         :class="city ? 'btn' : '', city ?  'btn-color' : 'off-btn-color'"
         @click="locationValidate()" />
     </div>

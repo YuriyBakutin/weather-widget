@@ -80,6 +80,21 @@ export const useStore = defineStore('main', {
 
       return true
     },
+    removeLocation(location: string) {
+      if (!this.locations.includes(location)) {
+        return false
+      }
+
+      this.locations = this.locations.filter((location_) => location_ != location)
+
+      if (this.weathersData[location]) {
+        delete this.weathersData[location]
+      }
+
+      localStorage.setItem('locations', JSON.stringify(this.locations))
+
+      return true
+    },
     async fetchAllWeathers() {
       const responseDataArray = await Promise.all(
         this.locations.map(

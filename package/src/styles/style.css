@@ -84,3 +84,6 @@
 .disabled {
   pointer-events: none;
 }
+.control-box {
+  background-color: #7f7f7f1f
+}

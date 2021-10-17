@@ -1,8 +1,3 @@
-<script lang="ts">
-  // FIXME: This is test initialization
-  localStorage.setItem('locations', '["London", "Havana", "Saint Petersburg"]')
-  const fetchInterval = 1000 * 60 // ms (= 1 min)
-</script>
 <script lang="ts" setup>
   import { useStore } from './store'
   import { storeToRefs } from 'pinia'
@@ -13,6 +8,7 @@
   store.initLocationsFromLocalStorage()
   store.fetchAllWeathers()
 
+  const fetchInterval = 1000 * 60 // ms (= 1 min)
   const fetchIntervalId = setInterval(() => store.fetchAllWeathers(), fetchInterval)
 
   const openSettingsForm = () => {
