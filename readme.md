@@ -1,17 +1,15 @@
 [defineCustomElement]: https://v3.vuejs.org/guide/web-components.html#definecustomelement
 [vueCustomElementExample]: https://github.com/ElMassimo/vue-custom-element-example
 [vueDevTool]: https://devtools.vuejs.org
-# Vue Custom Element template
+# Vue Custom Element — WeatherWidget
 
-This package is a project template for developing a Vue Custom Element by using the [defineCustomElement][defineCustomElement] API in Vue 3.
+This package is a training project for developing a Vue Custom Element by using the [defineCustomElement][defineCustomElement] API in Vue 3.
 
 This package created based on [vue-custom-element-example][vueCustomElementExample].
 
 It includes two repositories: a separate repository `vue-playground` for development Custom Element as Vue Component in Vue App environment using [Vue dev-tool][vueDevTool], and a separate repository `VueCustomElement` with the Vue Component itself, where the final Custom Element is builded.
 
 At the root there is a `index.html` file for testing the resulting Custom Element. This file can be opened directly in the browser.
-
-First, it is necessary to rename `vue-custom-element` and `VueCustomElement` to the actual name of Custom Element throughout the project.
 
 ## Vue Component development process
 
@@ -53,4 +51,4 @@ and run the build:
 pnpm run build
 ```
 
-You can test the behavior of the builded element by opening `index.html` file in the browser.
+You can test the behavior of the builded element by directly opening `index.html` file in the browser.
