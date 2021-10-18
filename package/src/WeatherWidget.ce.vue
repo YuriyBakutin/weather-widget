@@ -3,7 +3,7 @@
   import { storeToRefs } from 'pinia'
 
   const store = useStore()
-  const { settingsMode, locations } = storeToRefs(store)
+  const { settingsMode, locations, isDark } = storeToRefs(store)
 
   store.initLocationsFromLocalStorage()
   store.fetchAllWeathers()
@@ -20,18 +20,19 @@
   })
 </script>
 <template>
-  <div class="r relative base">
+  <div class="r relative base" :class="isDark ? 'base-dark' : 'base'">
     <SettingsPopup class="absolute left-0 top-0 z1" v-if="settingsMode"/>
-    <WelcomeView v-if="!locations.length" :class="settingsMode ? 'base-settings' : 'base'" />
+    <WelcomeView v-if="!locations.length" :class="settingsMode ? 'base-settings' : ''" />
     <div
       v-else
-      class="h4 border" :class="settingsMode ? 'base-settings' : 'base'">
+      class="h4 border" :class="settingsMode ? 'base-settings' : ''">
       <octicon-gear-16
         class="absolute right-0 top-0 mt2 mr2 h1 btn-color btn"
         @click="openSettingsForm()"/>
       <WeatherCard
         v-for="location in locations"
         :weatherData="store.getWeatherDataByLocation(location)"
+        :location="location"
         />
     </div>
   </div>

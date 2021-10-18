@@ -1,15 +1,17 @@
 <script lang="ts" setup>
   import IWeather from '../types/IWeather'
+  import getLocationFromWeatherData from '../helpers/getLocationFromWeatherData'
 
   const props = defineProps<{
     weatherData: IWeather,
+    location: string,
   }>()
 
 </script>
 <template>
   <div class="fit relative" style="min-height: 130px;">
     <div class="h1 bold mt3 ml3">
-      {{props.weatherData.city}}
+      {{location}}
     </div>
     <div>
       <div class="clearfix">

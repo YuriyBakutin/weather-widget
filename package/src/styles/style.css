@@ -38,17 +38,31 @@
   --space-4:16px;
 
 }
+.base-dark,
 .base {
   box-sizing: border-box;
   width: 202px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.base {
   color: black;
   background-color: white;
-  overflow: hidden;
-  overflow-wrap: break-word
+}
+.base-dark {
+  color: #cccccc;
+  background-color: #262626;
+}
+.base-dark img {
+  filter: brightness(1.4);
+  opacity: 0.8;
+}.base-dark .btn-color {
+  color: #a7a7a7
 }
 .base-settings {
-  background-color: #fafafa;
+  background-color: #7f7f7f1f;
   filter: blur(3px);
   margin-left: -1px;
   margin-top: -1px;
@@ -60,16 +74,26 @@
   cursor: pointer;
   z-index: 10;
 }
-.btn-color {
-  color: #666666
+.base .btn-color {
+  color: #666666;
 }
-.off-btn-color {
-  color: #999999
+.base-dark .btn-color {
+  color: #a7a7a7
+}
+.base .off-btn-color {
+  color: #999999;
 }
 .input {
-  border: 1px solid #ffcbbd;
+  border: 1px solid #7f7f7f7f;
   outline: none;
   padding: 2px;
+}
+.base-dark .input {
+  border: 1px solid #7f7f7f7f;
+  outline: none;
+  padding: 2px;
+  color: white;
+  background-color: #3f3f3f
 }
 .input:focus {
   border-width: 2px;
@@ -88,5 +112,5 @@
   pointer-events: none;
 }
 .control-box {
-  background-color: #7f7f7f1f
+  background-color: #7f7f7f1f;
 }

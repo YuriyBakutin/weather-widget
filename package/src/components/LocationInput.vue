@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import fetchWeatherByLocationPromise from '../helpers/fetchWeatherByLocationPromise'
   import getWeatherDataFromResponse from '../helpers/getWeatherDataFromResponse'
+  import getLocationFromWeatherData from '../helpers/getLocationFromWeatherData'
   import IWeather from '../types/IWeather'
   import { useStore } from '../store'
   import { storeToRefs } from 'pinia'
@@ -8,20 +9,21 @@
   const store = useStore()
   const { locations } = storeToRefs(store)
 
-  const city = ref('')
+  const location = ref('')
   const waiting = ref(false)
   const notFound = ref(false)
   const alreadyExists = ref(false)
+  const errorMessage = ref('')
 
-  const locationValidate = async () => {
-    if (!city?.value) {
+  const onInputReady = async () => {
+    if (!location?.value) {
       return
     }
 
-    console.log('city: ', city.value);
+    console.log('location: ', location.value);
     waiting.value = true
 
-    const response = await fetchWeatherByLocationPromise(city.value)
+    const response = await fetchWeatherByLocationPromise(location.value)
     console.log('response: ', response)
 
     waiting.value = false
@@ -32,23 +34,23 @@
       return
     }
 
-    const newWeatherData = getWeatherDataFromResponse(response) as IWeather
+    const weatherData = getWeatherDataFromResponse(response) as IWeather
 
-    if ( locations.value.includes(newWeatherData!.city) ) {
+    if ( locations.value.includes(getLocationFromWeatherData(weatherData)) ) {
       alreadyExists.value = true
 
       return
     }
 
     store.addLocationWithWeatherData({
-      location: city.value,
-      weatherData: newWeatherData
+      location: location.value,
+      weatherData: weatherData
     })
 
-    city.value = ''
+    location.value = ''
   }
 
-  watch(city,() => {
+  watch(location,() => {
     notFound.value = false
     alreadyExists.value = false
   })
@@ -61,22 +63,22 @@
         class="input mr2 h2 col col-11"
         :class="waiting ? 'disabled' : ''"
         type="text"
-        v-model="city"
+        v-model="location"
         placeholder="Add Location"
-        @keyup.enter="locationValidate()" />
+        @keyup.enter="onInputReady()" />
       <fluent-arrow-enter-left-20-filled
         class="h1 mt1 col-1"
-        :class="city ? 'btn' : '', city ?  'btn-color' : 'off-btn-color'"
-        @click="locationValidate()" />
+        :class="location ? 'btn' : '', location ?  'btn-color' : 'off-btn-color'"
+        @click="onInputReady()" />
     </div>
     <div class="h1 my4" v-if="waiting">
       <WaitingSpinner visible />
     </div>
     <div class="center fit mt2 h1 text-error" v-if="notFound">
-      Location <b>{{city}}</b> could not be found!
+      Location <b>{{location}}</b> could not be found!
     </div>
     <div class="center fit mt2 h1 text-error" v-if="alreadyExists">
-      Location <b>{{city}}</b> already exists!
+      Location <b>{{location}}</b> already exists!
     </div>
   </div>
 </template>

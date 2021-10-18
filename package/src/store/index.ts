@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import fetchWeatherByLocationPromise from '../helpers/fetchWeatherByLocationPromise'
 import getWeatherDataFromResponse from '../helpers/getWeatherDataFromResponse'
+import getLocationFromWeatherData from '../helpers/getLocationFromWeatherData'
 import IWeathers from '../types/IWeathers'
 import IWeather from '../types/IWeather'
 import Weather from '../types/Weather'
@@ -26,6 +27,7 @@ export const useStore = defineStore('main', {
       settingsMode: false,
       locations: [] as string[],
       weathersData: {} as IWeathers,
+      isDark: true,
   }),
   getters: {
     getWeatherDataByLocation: (state) => {
@@ -51,35 +53,36 @@ export const useStore = defineStore('main', {
         return false
       }
 
-      this.locations.push(location)
-      this.weathersData[location] = weatherData
+      const locationWithCountry = getLocationFromWeatherData(weatherData)
+      this.locations.push(locationWithCountry)
+      this.weathersData[locationWithCountry] = weatherData
 
       localStorage.setItem('locations', JSON.stringify(this.locations))
 
       return true
     },
-    async fetchWeatherByLocation(location: string) {
-      const response = await fetchWeatherByLocationPromise(location)
+    // async fetchWeatherByLocation(location: string) {
+    //   const response = await fetchWeatherByLocationPromise(location)
 
-      if (response === null) {
-        return false
-      }
+    //   if (response === null) {
+    //     return false
+    //   }
 
-      const newWeatherData = getWeatherDataFromResponse(response)
+    //   const newWeatherData = getWeatherDataFromResponse(response)
 
-      if (!this.weathersData[location]) {
-        this.weathersData[location] = { ...emptyWeatherData }
-      }
+    //   if (!this.weathersData[location]) {
+    //     this.weathersData[location] = { ...emptyWeatherData }
+    //   }
 
-      // Deep assignment is necessary for the reactivity of properties
-      // to work correctly
-      Weather.deepAssignment(
-        newWeatherData as IWeather,
-        this.weathersData[location] as IWeather
-      )
+    //   // Deep assignment is necessary for the reactivity of properties
+    //   // to work correctly
+    //   Weather.deepAssignment(
+    //     newWeatherData as IWeather,
+    //     this.weathersData[location] as IWeather
+    //   )
 
-      return true
-    },
+    //   return true
+    // },
     removeLocation(location: string) {
       if (!this.locations.includes(location)) {
         return false

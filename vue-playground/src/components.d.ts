@@ -5,6 +5,8 @@
 declare module 'vue' {
   export interface GlobalComponents {
     CarbonHumidity: typeof import('~icons/carbon/humidity')['default']
+    CarbonMoon: typeof import('~icons/carbon/moon')['default']
+    CarbonSun: typeof import('~icons/carbon/sun')['default']
     CiCloseBig: typeof import('~icons/ci/close-big')['default']
     CiHamburger: typeof import('~icons/ci/hamburger')['default']
     CilHamburgerMenu: typeof import('~icons/cil/hamburger-menu')['default']
