@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative fit"
-    style="height: 50rem;">
+    style="height: 50px;">
     <custom-icon-umbrella class="absolute h00 top-0 left-0" />
     <div
       class="absolute bold h1"
