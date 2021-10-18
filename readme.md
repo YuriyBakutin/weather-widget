@@ -1,7 +1,9 @@
 [defineCustomElement]: https://v3.vuejs.org/guide/web-components.html#definecustomelement
 [vueCustomElementExample]: https://github.com/ElMassimo/vue-custom-element-example
 [vueDevTool]: https://devtools.vuejs.org
-# Vue Custom Element — WeatherWidget
+# Vue Custom Element — c
+
+You can test WeatherWidget [here](https://yuriybakutin.github.io/weather-widget/)
 
 This package is a training project for developing a Vue Custom Element by using the [defineCustomElement][defineCustomElement] API in Vue 3.
 
