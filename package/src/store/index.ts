@@ -38,13 +38,19 @@ export const useStore = defineStore('main', {
   },
   actions: {
     initLocationsFromLocalStorage() {
-      const locations: string[] = JSON.parse(localStorage.getItem('locations') ?? '[]')
+      const locations: string[] = JSON.parse(localStorage.getItem('WeatherWidgetLocations') ?? '[]')
 
       this.locations = locations
 
       locations.forEach((location) => {
         this.weathersData[location] = (new Weather).weather
       })
+    },
+    initIsDarkFromLocalStorage() {
+      this.isDark = !!JSON.parse(localStorage.getItem('WeatherWidgetIsDark') ?? '0')
+    },
+    setIsDarkToLocalStorage(isDark: boolean) {
+      localStorage.setItem('WeatherWidgetIsDark', JSON.stringify(isDark ? 1 : 0))
     },
     addLocationWithWeatherData(
       { location, weatherData }: { location: string, weatherData: IWeather }
@@ -57,32 +63,10 @@ export const useStore = defineStore('main', {
       this.locations.push(locationWithCountry)
       this.weathersData[locationWithCountry] = weatherData
 
-      localStorage.setItem('locations', JSON.stringify(this.locations))
+      localStorage.setItem('WeatherWidgetLocations', JSON.stringify(this.locations))
 
       return true
     },
-    // async fetchWeatherByLocation(location: string) {
-    //   const response = await fetchWeatherByLocationPromise(location)
-
-    //   if (response === null) {
-    //     return false
-    //   }
-
-    //   const newWeatherData = getWeatherDataFromResponse(response)
-
-    //   if (!this.weathersData[location]) {
-    //     this.weathersData[location] = { ...emptyWeatherData }
-    //   }
-
-    //   // Deep assignment is necessary for the reactivity of properties
-    //   // to work correctly
-    //   Weather.deepAssignment(
-    //     newWeatherData as IWeather,
-    //     this.weathersData[location] as IWeather
-    //   )
-
-    //   return true
-    // },
     removeLocation(location: string) {
       if (!this.locations.includes(location)) {
         return false
@@ -94,7 +78,7 @@ export const useStore = defineStore('main', {
         delete this.weathersData[location]
       }
 
-      localStorage.setItem('locations', JSON.stringify(this.locations))
+      localStorage.setItem('WeatherWidgetLocations', JSON.stringify(this.locations))
 
       return true
     },

@@ -18,6 +18,7 @@
 
   const toggleDark = () => {
     isDark.value = !isDark.value
+    store.setIsDarkToLocalStorage(isDark.value)
   }
 </script>
 <template>

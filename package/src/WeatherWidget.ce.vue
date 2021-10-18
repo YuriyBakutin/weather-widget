@@ -5,6 +5,7 @@
   const store = useStore()
   const { settingsMode, locations, isDark } = storeToRefs(store)
 
+  store.initIsDarkFromLocalStorage()
   store.initLocationsFromLocalStorage()
   store.fetchAllWeathers()
 
